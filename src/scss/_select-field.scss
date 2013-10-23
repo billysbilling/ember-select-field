@@ -1,0 +1,17 @@
+@mixin select-field {
+    //Use .text-field to get higher specificity
+    .text-field.select-field {
+        &, input {
+            @include unselectable;
+            cursor: pointer;
+        }
+    
+        &:hover {
+            .picker1 {
+                .svg-main {
+                    fill: $blue;
+                }
+            }
+        }
+    }
+}

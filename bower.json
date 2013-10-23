@@ -1,0 +1,19 @@
+{
+  "name": "ember-select-field",
+  "version": "0.1.0",
+  "homepage": "https://github.com/billysbilling/ember-select-field",
+  "main": "src/js/select-field.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ember": "billysbilling/bower-ember#master",
+    "style-guide": "billysbilling/style-guide#master",
+    "ember-super-field": "billysbilling/ember-super-field#master"
+  }
+}
