@@ -12,8 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "ember": "billysbilling/bower-ember#master",
-    "style-guide": "billysbilling/style-guide#master",
-    "ember-super-field": "billysbilling/ember-super-field#master"
+    "ember-super-field": "billysbilling/ember-super-field#~1.0.0",
+    "style-guide": "billysbilling/style-guide#~1.0.0"
   }
 }
