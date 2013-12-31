@@ -1,11 +1,16 @@
 @mixin select-field {
     //Use .text-field to get higher specificity
     .text-field.select-field {
+        &:not(.disabled) {
+            &, input {
+                cursor: pointer;
+            }
+        }
+        
         &, input {
             @include unselectable;
-            cursor: pointer;
         }
-    
+
         &:hover {
             .picker1 {
                 .svg-main {

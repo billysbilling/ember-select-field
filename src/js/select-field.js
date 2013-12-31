@@ -16,7 +16,10 @@ module.exports = SuperField.extend({
     },
     
     eventManager: {
-        click: function(e) {
+        click: function(e, view) {
+            if (view.get('disabled')) {
+                return;
+            }
             e.stopPropagation();
             var el = $(e.target).closest('.select-field');
             var select = Em.View.views[el.attr('id')];
