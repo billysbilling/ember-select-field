@@ -3,7 +3,7 @@ var SuperField = require('ember-super-field');
 module.exports = SuperField.extend({
     classNames: ['select-field'],
     
-    readonly: true,
+    inputReadonly: true,
     
     allowKeyInput: false,
     
