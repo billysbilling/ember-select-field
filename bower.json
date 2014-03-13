@@ -1,6 +1,6 @@
 {
   "name": "ember-select-field",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "homepage": "https://github.com/billysbilling/ember-select-field",
   "main": "src/js/select-field.js",
   "license": "MIT",
