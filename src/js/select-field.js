@@ -2,11 +2,11 @@ var SuperField = require('ember-super-field');
 
 module.exports = SuperField.extend({
     classNames: ['select-field'],
-    
+
     inputReadonly: true,
-    
+
     allowKeyInput: false,
-    
+
     init: function() {
         this.set('type', SuperField.types.Basic.createWithMixins({
             content: Em.computed.alias('field.content'),
@@ -14,7 +14,7 @@ module.exports = SuperField.extend({
         }));
         this._super();
     },
-    
+
     eventManager: {
         click: function(e, view) {
             if (view.get('disabled')) {
@@ -26,7 +26,7 @@ module.exports = SuperField.extend({
             select.showSelector();
         }
     },
-    
+
     formatInputValue: function(value) {
         var self = this,
             inputValue = '',
@@ -42,14 +42,19 @@ module.exports = SuperField.extend({
         }
         return inputValue;
     },
-    
+
+    optionsDidChange: function() {
+        //Update selected value, if options changed
+        this.reformatInputValue();
+    }.observes('content.@each'),
+
     valuesAreEqual: function(a, b) {
         if (moment.isMoment(a)) {
             return a.isSame(b);
         }
         return a === b;
     },
-    
+
     selectOption: function(option) {
         this.set('value', option.get('value'));
     }
