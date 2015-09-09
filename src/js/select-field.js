@@ -7,6 +7,8 @@ module.exports = SuperField.extend({
 
     allowKeyInput: false,
 
+    inputValuePath: 'name',
+
     init: function() {
         this.set('type', SuperField.types.Basic.createWithMixins({
             content: Em.computed.alias('field.content'),
@@ -29,12 +31,13 @@ module.exports = SuperField.extend({
 
     formatInputValue: function(value) {
         var self = this,
+            inputValuePath = this.get('inputValuePath'),
             inputValue = '',
             content = this.get('type.content');
         if (content) {
             content.find(function(item) {
                 if (self.valuesAreEqual(value, item.get('value'))) {
-                    inputValue = item.get('name');
+                    inputValue = item.get(inputValuePath);
                     return true;
                 }
                 return false;
