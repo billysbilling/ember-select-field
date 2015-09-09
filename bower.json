@@ -14,6 +14,7 @@
   "dependencies": {
     "ember-super-field": "billysbilling/ember-super-field#>=1.0 <2.0",
     "ember-text-field": "billysbilling/ember-text-field#>=1.6 <2.0",
+    "function-proxy": "billysbilling/function-proxy#>=1.0 <2.0",
     "style-guide": "billysbilling/style-guide#>=1.0 <2.0"
   }
 }

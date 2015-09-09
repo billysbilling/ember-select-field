@@ -1,4 +1,5 @@
 var SuperField = require('ember-super-field');
+var functionProxy = require('function-proxy');
 
 module.exports = SuperField.extend({
     classNames: ['select-field'],
@@ -15,6 +16,33 @@ module.exports = SuperField.extend({
             field: this
         }));
         this._super();
+    },
+
+    didInsertElement: function() {
+        this._super()
+
+        var input = this.$('input');
+        input.keypress(functionProxy(this.selectFromKeyPress, this));
+    },
+
+    selectFromKeyPress: function(e) {
+        if (e.hasModifier) {
+            return
+        }
+        var key = e.keyCode || e.which
+        var char = String.fromCharCode(key)
+        if (!char) {
+            return
+        }
+        char = char.toLowerCase()
+        var match = this.get('content').find(function(item) {
+            if (char === item.get('name').toLowerCase().substring(0, 1)) {
+                return true
+            }
+        })
+        if (match) {
+            this.selectOption(match)
+        }
     },
 
     eventManager: {
